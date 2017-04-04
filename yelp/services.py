@@ -51,7 +51,7 @@ class YelpService:
             'radius': 20000
         }
 
-    def get_search_results(self, input_params=None):
+    def search(self, input_params=None):
         bearer_token = self.get_token()
         url_params = self.parse_params(input_params) or {}
         url = '{0}{1}'.format(self.api_host, self.search_path)
