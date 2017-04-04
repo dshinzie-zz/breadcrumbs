@@ -51,10 +51,16 @@ class YelpService:
             'radius': 20000
         }
 
-    def get_search_results(self, input_params):
+    def get_search_results(self, input_params=None):
         bearer_token = self.get_token()
-        url_params = self.parse_params(input_params)
+        url_params = self.parse_params(input_params) or {}
+        url = '{0}{1}'.format(self.api_host, self.search_path)
+        headers = {
+            'Authorization': 'Bearer %s' % bearer_token,
+        }
 
+        response = requests.request('GET', url, headers=headers, params=url_params)
+        return response.json()
 
 
     # # Without the main sentinel, the code would be executed even if the script were imported as a module.
