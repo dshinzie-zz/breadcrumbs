@@ -15,17 +15,19 @@ class GoogleMap extends React.Component {
 
   render() {
     return (
-      <GoogleMapReact
-        bootstrapURLKeys={{key: 'AIzaSyD0-DcpN0mv2nxOOLUK9PzG0AwjVDcyxZU'}} 
-        defaultCenter={this.state.center}
-        defaultZoom={this.state.zoom}
-      >
-        <AnyReactComponent
-          lat={59.955413}
-          lng={30.337844}
-          text={'Kreyser Avrora'}
-        />
-      </GoogleMapReact>
+      <div style={{width: '100%', height: '400px'}}>
+        <GoogleMapReact
+          bootstrapURLKeys={{key: 'AIzaSyD0-DcpN0mv2nxOOLUK9PzG0AwjVDcyxZU'}}
+          defaultCenter={this.state.center}
+          defaultZoom={this.state.zoom}
+        >
+          <AnyReactComponent
+            lat={59.955413}
+            lng={30.337844}
+            text={'Kreyser Avrora'}
+          />
+        </GoogleMapReact>
+      </div>
     );
   }
 }
