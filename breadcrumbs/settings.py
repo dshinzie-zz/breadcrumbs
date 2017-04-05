@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_extensions',
+    'webpack_loader',
     'yelp',
 ]
 
@@ -112,9 +113,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/yelp/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'yelp/static')
+
 
 #Yelp Keys
 CLIENT_ID = secrets.CLIENT_ID
 CLIENT_SECRET = secrets.CLIENT_SECRET
+
+#Webpack for React
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'assets/bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'yelp/webpack-stats.json'),
+    }
+}
