@@ -8,7 +8,9 @@ module.exports = {
     context: __dirname,
     entry: {
       main: './static/assets/js/index',
-      map: './static/assets/js/map',
+      application: './static/assets/js/components/Application',
+      map: './static/assets/js/components/Map',
+      locations: './static/assets/js/reducers/locations',
     },
 
     output: {

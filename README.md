@@ -5,5 +5,5 @@ This is a an app for poor people, like myself. Use the filters to search cheap r
 
 ## Technology
 Server: Python on Django
-Client: React
+Client: React, Redux
 Tools: Webpack, Babel, Django Webpack Loader, Google-Map-React
