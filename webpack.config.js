@@ -1,4 +1,5 @@
 //require our dependencies
+// run this: ./node_modules/.bin/webpack --config webpack.config.js
 var path = require('path')
 var webpack = require('webpack')
 var BundleTracker = require('webpack-bundle-tracker')
@@ -6,11 +7,12 @@ var BundleTracker = require('webpack-bundle-tracker')
 module.exports = {
     context: __dirname,
     entry: {
-      main: './yelp/static/assets/js/index',
+      main: './static/assets/js/index',
+      map: './static/assets/js/map',
     },
 
     output: {
-        path: path.resolve('./yelp/static/assets/bundles/'),
+        path: path.resolve('./static/assets/bundles/'),
         filename: '[name]-[hash].js',
     },
 
@@ -25,16 +27,10 @@ module.exports = {
 
     module: {
         loaders: [
-            //a regexp that tells webpack use the following loaders on all
-            //.js and .jsx files
             {test: /\.jsx?$/,
-                //we definitely don't want babel to transpile all the files in
-                //node_modules. That would take a long time.
                 exclude: /node_modules/,
-                //use the babel loader
                 loader: 'babel-loader',
                 query: {
-                    //specify that we will be dealing with React code
                     presets: ['react']
                 }
             }
@@ -42,7 +38,6 @@ module.exports = {
     },
 
     resolve: {
-        //extensions that should be used to resolve modules
         extensions: [' ', '.js', '.jsx']
     }
 }

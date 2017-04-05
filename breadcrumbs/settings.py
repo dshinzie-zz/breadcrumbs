@@ -43,6 +43,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'breadcrumbs.urls'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static/assets'), # We do this so that django's collectstatic copies or our bundles to the STATIC_ROOT or syncs them to whatever storage we use.
+)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -113,8 +117,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
-STATIC_URL = '/yelp/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'yelp/static')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 #Yelp Keys
@@ -124,7 +128,7 @@ CLIENT_SECRET = secrets.CLIENT_SECRET
 #Webpack for React
 WEBPACK_LOADER = {
     'DEFAULT': {
-        'BUNDLE_DIR_NAME': 'assets/bundles/',
-        'STATS_FILE': os.path.join(BASE_DIR, 'yelp/webpack-stats.json'),
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
     }
 }
