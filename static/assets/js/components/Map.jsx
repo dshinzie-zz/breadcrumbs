@@ -1,14 +1,14 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
+import React, {Component} from 'react'
+import { render } from 'react-dom';
 import GoogleMapReact from 'google-map-react';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-class GoogleMap extends React.Component {
+class GoogleMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      center: {lat: 59.95, lng: 30.33},
+      center: {lat: 39.6645260, lng: -104.9825840},
       zoom: 11
     }
   }
@@ -22,9 +22,9 @@ class GoogleMap extends React.Component {
           defaultZoom={this.state.zoom}
         >
           <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text={'Kreyser Avrora'}
+            lat={38.6645260}
+            lng={-105.9825840}
+            text={'Test'}
           />
         </GoogleMapReact>
       </div>
