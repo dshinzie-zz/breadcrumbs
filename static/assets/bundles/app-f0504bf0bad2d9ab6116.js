@@ -10055,14 +10055,31 @@ class GoogleMap extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger;
-    this.setState({
-      locations: this.props.locations
-    });
+    this.setState({ locations: nextProps.locations });
+  }
+
+  componentWillMount() {
+    this.getAllLocations();
+  }
+
+  getAllLocations() {
+    if (this.state.locations != null) {
+      return this.state.locations.map(function (location) {
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(AnyReactComponent, {
+          lat: location.coordinates.latitude,
+          lng: location.coordinates.longitude,
+          text: location.name
+        });
+      });
+    } else {
+      return null;
+    }
   }
 
   render() {
-    console.log(this.state.locations);
+    var locations = this.getAllLocations();
+    console.log(locations);
+
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { style: { width: '100%', height: '400px' } },
@@ -10077,7 +10094,8 @@ class GoogleMap extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
           lat: 38.6645260,
           lng: -105.9825840,
           text: 'Test'
-        })
+        }),
+        locations
       )
     );
   }
@@ -24820,7 +24838,6 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
       }.bind(this),
       complete: function () {
         console.log("Retrieved all locations:");
-        console.log(this.state.locations);
       }.bind(this)
     });
   }
@@ -24830,7 +24847,6 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   }
 
   render() {
-
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       null,

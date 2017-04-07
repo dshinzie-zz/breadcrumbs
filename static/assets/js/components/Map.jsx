@@ -15,12 +15,31 @@ class GoogleMap extends Component {
   }
 
   componentWillReceiveProps(nextProps){
-    this.setState({
-      locations: nextProps.locations
-    })
+    this.setState({ locations: nextProps.locations });
+  }
+
+  componentWillMount(){
+    this.getAllLocations();
+  }
+
+  getAllLocations(){
+    if(this.state.locations != null){
+      return this.state.locations.map(function(location){
+        React.createElement(AnyReactComponent, {
+          lat: location.coordinates.latitude,
+          lng: location.coordinates.longitude,
+          text: location.name
+        });
+      });
+    } else {
+      return null;
+    }
   }
 
   render() {
+    var locations = this.getAllLocations();
+    console.log(locations);
+
     return (
       <div style={{width: '100%', height: '400px'}}>
         <GoogleMapReact
@@ -33,7 +52,7 @@ class GoogleMap extends Component {
             lng={-105.9825840}
             text={'Test'}
           />
-
+        {locations}
         </GoogleMapReact>
       </div>
     );
