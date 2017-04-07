@@ -23,20 +23,20 @@ class App extends Component {
       }.bind(this),
       complete: function(){
         console.log("Retrieved all locations:")
-        console.log(this.state.locations);
       }.bind(this)
     });
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.getLocations()
   }
 
   render() {
+
     return (
       <div>
         <h1>Hello, React!</h1>
-        <GoogleMap/>
+        <GoogleMap locations={this.state.locations}/>
       </div>
     )
   }

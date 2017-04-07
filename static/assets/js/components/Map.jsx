@@ -9,8 +9,15 @@ class GoogleMap extends Component {
     super(props);
     this.state = {
       center: {lat: 39.6645260, lng: -104.9825840},
-      zoom: 11
+      zoom: 11,
+      locations: null
     }
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      locations: nextProps.locations
+    })
   }
 
   render() {
@@ -26,6 +33,7 @@ class GoogleMap extends Component {
             lng={-105.9825840}
             text={'Test'}
           />
+
         </GoogleMapReact>
       </div>
     );
