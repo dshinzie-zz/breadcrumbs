@@ -10,12 +10,13 @@ module.exports = {
       main: './static/assets/js/index',
       app: './static/assets/js/components/App',
       map: './static/assets/js/components/Map',
+      input: './static/assets/js/components/Input',
       locations: './static/assets/js/reducers/locations',
     },
 
     output: {
         path: path.resolve('./static/assets/bundles/'),
-        filename: '[name]-[hash].js',
+        filename: '[name].bundle.js',
     },
 
     plugins: [

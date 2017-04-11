@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-
 import GoogleMap from './Map.jsx'
+import Input from './Input.jsx'
 
 class App extends Component {
   constructor(props){
@@ -36,6 +36,7 @@ class App extends Component {
       <div>
         <h1>Hello, React!</h1>
         <GoogleMap locations={this.state.locations}/>
+        <Input/>
       </div>
     )
   }
