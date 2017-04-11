@@ -12137,55 +12137,79 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 class Input extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      term: '',
+      price: '',
+      radius: '5000'
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(e) {
+    if (e.target.id == 'term') {
+      this.setState({ term: e.target.value });
+    }
+    if (e.target.id == 'price') {
+      this.setState({ price: e.target.value });
+    }
+    if (e.target.id == 'radius') {
+      this.setState({ radius: e.target.value });
+    }
+  }
+
+  handleSubmit(e) {
+    debugger;
+    e.preventDefault();
   }
 
   render() {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "form",
-      null,
+      'form',
+      { onSubmit: this.handleSubmit },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "label",
+        'label',
         null,
-        "Term:",
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", value: this.state.value })
+        'Term:',
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'term', type: 'text', value: this.state.value, onChange: this.handleChange })
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "label",
+        'label',
         null,
-        "Price",
+        'Price',
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "select",
-          null,
+          'select',
+          { id: 'price', onChange: this.handleChange },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "option",
-            { value: "1" },
-            "$"
+            'option',
+            { value: '1' },
+            '$'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "option",
-            { value: "2" },
-            "$$"
+            'option',
+            { value: '2' },
+            '$$'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "option",
-            { value: "3" },
-            "$$$"
+            'option',
+            { value: '3' },
+            '$$$'
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "option",
-            { value: "4" },
-            "$$$$"
+            'option',
+            { value: '4' },
+            '$$$$'
           )
         )
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "label",
+        'label',
         null,
-        "Radius",
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "text", value: this.state.value })
+        'Radius',
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { id: 'radius', type: 'text', value: this.state.value, onChange: this.handleChange })
       ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("input", { type: "submit", value: "Submit" })
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'submit', value: 'Submit' })
     );
   }
 }
