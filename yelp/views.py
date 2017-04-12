@@ -17,6 +17,9 @@ def locations(request):
             'rating': location.rating,
             'coordinates': location.coordinates
         } for location in locations]
-    
+
     locations = _get_location_attributes(YelpRepository().get_search_results("test"))
     return JsonResponse(locations, safe=False)
+
+def new_locations(request):
+    
